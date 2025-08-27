@@ -5,10 +5,12 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.unit.dp
 
 @Composable
 fun CustomBackground(
@@ -17,7 +19,7 @@ fun CustomBackground(
 ) {
     val focusManager = LocalFocusManager.current
 
-    Box(
+    Column(
         modifier = Modifier
             .fillMaxSize()
             .clickable(
@@ -27,8 +29,11 @@ fun CustomBackground(
                 focusManager.clearFocus()
             }
     ) {
-        Column(modifier = Modifier.fillMaxSize()) {
-            appBar?.invoke()
+        appBar?.invoke()
+
+        Box(
+            modifier = Modifier.fillMaxSize()
+        ) {
             body?.invoke()
         }
     }

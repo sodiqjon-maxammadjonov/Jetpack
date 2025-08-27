@@ -2,10 +2,10 @@ package com.sdk.myapp.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple80 = Color(0xFFD0BCFF)
-val PurpleGrey80 = Color(0xFFCCC2DC)
-val Pink80 = Color(0xFFEFB8C8)
+val ElectricMint80 = Color(0xFF00E5A0)
+val AquaGlow80 = Color(0xFF64FFDA)
+val SunsetOrange80 = Color(0xFFFF6B35)
 
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
+val CyanWave40 = Color(0xFF00BCD4)
+val DeepOcean40 = Color(0xFF37474F)
+val FireCoral40 = Color(0xFFFF5722)

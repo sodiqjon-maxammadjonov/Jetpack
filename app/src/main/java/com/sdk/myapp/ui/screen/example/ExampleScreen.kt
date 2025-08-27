@@ -53,79 +53,64 @@ fun ExampleScreen() {
         appBar = {
             CustomAppBar(
                 title = "Mening Sarlavham",
-                subtitle = "Pastki sarlavha",
-                leadingIcon = {
-                    IconButton(onClick = { /* Orqaga */ }) {
-                        Icon(
-                            imageVector = Icons.Default.ArrowBack,
-                            contentDescription = "Orqaga"
-                        )
-                    }
-                },
-                actions = {
-                    IconButton(onClick = { /* Qidirish */ }) {
-                        Icon(
-                            imageVector = Icons.Default.Search,
-                            contentDescription = "Qidirish"
-                        )
-                    }
-                    IconButton(onClick = { /* Sozlamalar */ }) {
-                        Icon(
-                            imageVector = Icons.Default.Settings,
-                            contentDescription = "Sozlamalar"
-                        )
-                    }
-                }
             )
         },
         body = {
             LazyColumn(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(16.dp)
+                modifier = Modifier.fillMaxSize(),
+                // contentPadding ishlatish - bu to'g'ri usul!
+                contentPadding = androidx.compose.foundation.layout.PaddingValues(16.dp)
             ) {
                 item {
-                    Text(
-                        text = "Salom Dunyo!",
-                        style = MaterialTheme.typography.headlineMedium,
-                        color = MaterialTheme.colorScheme.onBackground
-                    )
-                    Spacer(modifier = Modifier.height(16.dp))
+                    Column {
+                        Text(
+                            text = "Salom Dunyo!",
+                            style = MaterialTheme.typography.headlineMedium,
+                            color = MaterialTheme.colorScheme.onBackground
+                        )
+                        Spacer(modifier = Modifier.height(16.dp))
 
-                    TextField(
-                        value = text,
-                        onValueChange = { text = it },
-                        label = { Text("Matn kiriting") },
-                        modifier = Modifier.fillMaxWidth()
-                    )
+                        OutlinedTextField(
+                            value = text,
+                            onValueChange = { text = it },
+                            label = { Text("Matn kiriting") },
+                            modifier = Modifier.fillMaxWidth()
+                        )
 
-                    Spacer(modifier = Modifier.height(16.dp))
+                        Spacer(modifier = Modifier.height(16.dp))
 
-                    Button(
-                        onClick = { /* Harakat */ },
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        Text("Tasdiqlash")
+                        Button(
+                            onClick = { /* Harakat */ },
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Text("Tasdiqlash")
+                        }
+
+                        Spacer(modifier = Modifier.height(16.dp))
                     }
                 }
 
                 items(20) { index ->
-                    ListItem(
-                        headlineContent = { Text("Element $index") },
-                        leadingContent = {
-                            Icon(
-                                imageVector = Icons.Default.Favorite,
-                                contentDescription = null
+                    Column {
+                        ListItem(
+                            headlineContent = { Text("Element $index") },
+                            leadingContent = {
+                                Icon(
+                                    imageVector = Icons.Default.Favorite,
+                                    contentDescription = null
+                                )
+                            },
+                            modifier = Modifier.fillMaxWidth()
+                        )
+                        if (index < 19) {
+                            HorizontalDivider(
+                                thickness = DividerDefaults.Thickness,
+                                color = DividerDefaults.color
                             )
-                        },
-                        modifier = Modifier
-                            .fillMaxWidth()
-                    )
-                    HorizontalDivider(Modifier, DividerDefaults.Thickness, DividerDefaults.color)
+                        }
+                    }
                 }
             }
         }
     )
 }
-
-
