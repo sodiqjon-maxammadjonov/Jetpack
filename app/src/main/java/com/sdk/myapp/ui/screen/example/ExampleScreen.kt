@@ -58,7 +58,6 @@ fun ExampleScreen() {
         body = {
             LazyColumn(
                 modifier = Modifier.fillMaxSize(),
-                // contentPadding ishlatish - bu to'g'ri usul!
                 contentPadding = androidx.compose.foundation.layout.PaddingValues(16.dp)
             ) {
                 item {

@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.sdk.myapp.ui.screen.example.ExampleScreen
+import com.sdk.myapp.ui.screen.main.MainScreen
 import com.sdk.myapp.ui.theme.MyAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    ExampleScreen()
+                    MainScreen()
                 }
             }
         }
